@@ -32,4 +32,5 @@ This project serves as the backend for handling password reset functionality in 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/password-reset-backend.git
+   git clone https://github.com/Anilkokkul/password-reset-backend.git
+   ```

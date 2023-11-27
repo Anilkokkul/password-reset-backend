@@ -9,10 +9,7 @@ db();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://heroic-pastelito-4295d1.netlify.app",
-    ],
+    origin: [process.env.BASE_DEV_URL, process.env.BASE_URL],
     credentials: true,
     methods: ["GET", "POS", "DELETE", "PUT"],
   })

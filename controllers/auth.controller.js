@@ -41,7 +41,7 @@ exports.registerUser = async (req, res) => {
       ])
       .catch((error) => {
         res.status(400).send({
-          message: "Error occured while creating the user",
+          message: "Error occurred while creating the user",
           error: error.message,
         });
       });
@@ -108,7 +108,7 @@ exports.forgotPassword = async (req, res) => {
     const hashedToken = await bcrypt.hash(newToken, 10);
     const tokenPayload = new Tokens({ userId: user._id, token: hashedToken });
     await tokenPayload.save();
-    const link = `http://localhost:3000/resetPassword?token=${newToken}&userId=${user._id}`;
+    const link = `${process.env.BASE_URL}/resetPassword?token=${newToken}&userId=${user._id}`;
 
     const isResetLinkSent = await sendResetLink(
       user.email,

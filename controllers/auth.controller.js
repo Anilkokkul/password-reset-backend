@@ -108,7 +108,7 @@ exports.forgotPassword = async (req, res) => {
     const hashedToken = await bcrypt.hash(newToken, 10);
     const tokenPayload = new Tokens({ userId: user._id, token: hashedToken });
     await tokenPayload.save();
-    const link = `${process.env.BASE_DEV_URL}/reset-password?token=${newToken}&userId=${user._id}`;
+    const link = `https://heroic-pastelito-4295d1.netlify.app/reset-password?token=${newToken}&userId=${user._id}`;
 
     const isResetLinkSent = await sendResetLink(
       user.email,
